@@ -1,5 +1,5 @@
-const { NotImplementedError } = require('../extensions/index.js');
-// const { ListNode } = require('../extensions/list-node.js');
+//const { NotImplementedError } = require('../extensions/index.js');
+//const { ListNode } = require('../extensions/list-node.js');
 
 class ListNode {
   constructor(x) {
@@ -19,20 +19,28 @@ class ListNode {
  * @example
  * For l = [3, 1, 2, 3, 4, 5] and k = 3,
  * the output should be [1, 2, 4, 5]
- *
- * Singly - linked lists are already defined using interface
- * class ListNode {
- *   constructor(x) {
- *     this.value = x;
- *     this.next = null;
- *   }
- * }
  */
-function removeKFromList(/* l, k */) {
-  throw new NotImplementedError('Not implemented');
-  // remove line with error and write your code here
+
+function removeKFromList(l, k) {
+  let currentNode = l;
+  let prevNode = null;
+  while(currentNode !== null){
+    if(currentNode.value === k){
+      if(prevNode){
+        prevNode.next = currentNode.next;
+        currentNode = prevNode.next;
+      } else {
+        l = currentNode.next;
+        currentNode = l;
+      }
+    } else {
+      prevNode = currentNode;
+      currentNode = currentNode.next;
+    }
+  }
+  return l;
 }
 
 module.exports = {
-  removeKFromList
+ removeKFromList
 };
