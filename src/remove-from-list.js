@@ -1,6 +1,12 @@
 const { NotImplementedError } = require('../extensions/index.js');
-
 // const { ListNode } = require('../extensions/list-node.js');
+
+class ListNode {
+  constructor(x) {
+    this.value = x;
+    this.next = null;
+  }
+}
 
 /**
  * Given a singly linked list of integers l and an integer k,
