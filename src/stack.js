@@ -22,7 +22,6 @@ class Stack {
 }
 
 // @example
-
 /*
 const stack = new Stack();
 stack.push(1); // adds the element to the stack
